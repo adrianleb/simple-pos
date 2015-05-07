@@ -5,12 +5,13 @@ var Terminal = {
     this.reset()
     this.setPricing()
   },
+
   reset:function(){
     this.total = 0;
     this.products = [];
   },
-  setPricing: function(){
 
+  setPricing: function(){
     this.productPricing = {
       "A": {
         name:'Doritos',
@@ -40,11 +41,11 @@ var Terminal = {
   },
 
   scanProduct:function(productKey){
-
     this.products.push(productKey);
     this.updateTotalPrice()
 
   },
+
   updateTotalPrice:function(){
     var purchasedProducts = {}
     this.total = 0;
@@ -54,9 +55,7 @@ var Terminal = {
       purchasedProducts[this.products[i]] = purchasedProducts[this.products[i]] ? purchasedProducts[this.products[i]] + 1 : 1
     };
 
-
     var purchasedProductKeys = Object.keys(purchasedProducts);
-
     for (var i = purchasedProductKeys.length - 1; i >= 0; i--) {
       var currentProductKey = purchasedProductKeys[i];
       var currentProduct = purchasedProducts[purchasedProductKeys[i]];
@@ -79,4 +78,5 @@ var Terminal = {
 
   }
 }
+
 Terminal.init()
